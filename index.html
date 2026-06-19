@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LabMate — AI-Powered Laboratory Companion</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+	</head>
+	<body>
+		<!-- Nav Start -->
+		<nav class="navbar" id="navbar">
+			<div class="nav-container">
+				<div class="nav-logo">
+					<span class="logo-icon"><i class="fas fa-robot"></i></span>
+					<span class="logo-text"
+						>Lab<span class="logo-accent">Mate</span></span
+					>
+				</div>
+				<ul class="nav-links" id="navLinks">
+					<li><a href="#home" class="nav-link active">Home</a></li>
+					<li><a href="#experiments" class="nav-link">Experiments</a></li>
+					<li><a href="#safety" class="nav-link">Safety</a></li>
+					<li><a href="#tools" class="nav-link">Tools</a></li>
+					<li><a href="#assistant" class="nav-link">Assistant</a></li>
+				</ul>
+				<button class="hamburger" id="hamburger" aria-label="Menu">
+					<span></span><span></span><span></span>
+				</button>
+			</div>
+		</nav>
+		<!-- Nav End -->
+
+		<!-- Hero Start -->
+		<section class="hero" id="home">
+			<div class="hero-content">
+				<h1 class="hero-title">
+					<span class="title-line"
+						>Lab<span class="title-line accent">Mate</span></span
+					>
+				</h1>
+				<p class="hero-subtitle">
+					Your AI-powered laboratory instructor — available 24/7 for guidance,
+					calculations, safety advice, and experiment walkthroughs.
+				</p>
+				<div class="hero-actions">
+					<button class="btn-primary" onclick="scrollToAssistant()">
+						<span class="btn-icon"
+							><i class="fa fa-rocket" aria-hidden="true"></i
+						></span>
+						Launch Assistant
+					</button>
+					<button
+						class="btn-ghost"
+						onclick="
+							document
+								.getElementById('experiments')
+								.scrollIntoView({ behavior: 'smooth' })
+						">
+						<i class="fa fa-search" aria-hidden="true"></i>
+						View Experiments
+					</button>
+					<button class="btn-primary" onclick="scrollToSection('safety')">
+						<span class="btn-icon">
+							<i class="fa fa-warning" aria-hidden="true"></i>
+						</span>
+						Safety Precautions
+					</button>
+					<button class="btn-ghost" onclick="scrollToSection('tools')">
+						<span class="btn-icon">
+							<i class="fa fa-calculator" aria-hidden="true"></i>
+						</span>
+						Lab Calculators
+					</button>
+				</div>
+			</div>
+		</section>
+		<!-- Hero End -->
+
+		<!-- Experiments Start -->
+		<section class="experiments-section" id="experiments">
+			<div class="section-header">
+				<div class="section-tag">EXPERIMENT LIBRARY</div>
+				<h2 class="section-title">
+					Guided <span class="accent">Experiments</span>
+				</h2>
+				<p class="section-desc">
+					Step-by-step laboratory experiments across engineering and science
+					disciplines.
+				</p>
+			</div>
+
+			<div class="exp-categories">
+				<button class="exp-cat active" data-cat="all">All</button>
+				<button class="exp-cat" data-cat="electrical">
+					Electrical Machines
+				</button>
+				<button class="exp-cat" data-cat="electronics">Electronics</button>
+				<button class="exp-cat" data-cat="physics">Physics</button>
+				<button class="exp-cat" data-cat="chemistry">Chemistry</button>
+				<button class="exp-cat" data-cat="control">Control Systems</button>
+			</div>
+
+			<div class="exp-grid" id="expGrid">
+				<!-- Populated by JS -->
+			</div>
+		</section>
+		<!-- Experiments End -->
+
+		<!-- Safety Start -->
+		<section class="safety-section" id="safety">
+			<div class="section-header">
+				<div class="section-tag">SAFETY CENTER</div>
+				<h2 class="section-title">
+					Laboratory <span class="accent">Safety</span>
+				</h2>
+				<p class="section-desc">
+					Critical safety guidelines every lab user must know. Click a card or
+					ask the assistant.
+				</p>
+			</div>
+
+			<div class="safety-grid">
+				<div class="safety-card" onclick="showSafetyModal('chemical')">
+					<div class="safety-icon chemical">☣</div>
+					<h3>Chemical Safety</h3>
+					<p>
+						Handling hazardous chemicals, acids, bases, and reactive substances
+						safely.
+					</p>
+					<span class="safety-level high">HIGH RISK</span>
+				</div>
+
+				<div class="safety-card" onclick="showSafetyModal('electrical')">
+					<div class="safety-icon electrical">⚡</div>
+					<h3>Electrical Safety</h3>
+					<p>
+						Working with live circuits, high voltage equipment, and electrical
+						tools.
+					</p>
+					<span class="safety-level high">HIGH RISK</span>
+				</div>
+
+				<div class="safety-card" onclick="showSafetyModal('mechanical')">
+					<div class="safety-icon mechanical">⚙</div>
+					<h3>Mechanical Safety</h3>
+					<p>
+						Operating machinery, rotating equipment, and mechanical components.
+					</p>
+					<span class="safety-level medium">MEDIUM RISK</span>
+				</div>
+
+				<div class="safety-card" onclick="showSafetyModal('emergency')">
+					<div class="safety-icon emergency">🚨</div>
+					<h3>Emergency Procedures</h3>
+					<p>
+						Fire, chemical spill, electrical accident, and medical emergency
+						protocols.
+					</p>
+					<span class="safety-level critical">CRITICAL</span>
+				</div>
+
+				<div class="safety-card" onclick="showSafetyModal('ppe')">
+					<div class="safety-icon ppe">🥽</div>
+					<h3>PPE Recommendations</h3>
+					<p>
+						Personal protective equipment requirements for every lab
+						environment.
+					</p>
+					<span class="safety-level medium">REQUIRED</span>
+				</div>
+
+				<div class="safety-card" onclick="showSafetyModal('fire')">
+					<div class="safety-icon fire">🔥</div>
+					<h3>Fire Safety</h3>
+					<p>
+						Flammable material handling, fire extinguisher use, and evacuation.
+					</p>
+					<span class="safety-level high">HIGH RISK</span>
+				</div>
+			</div>
+		</section>
+		<!-- Safety End -->
+
+		<!-- Tools Start -->
+		<section class="tools-section" id="tools">
+			<div class="section-header">
+				<div class="section-tag">CALCULATORS</div>
+				<h2 class="section-title">
+					Laboratory <span class="accent">Tools</span>
+				</h2>
+				<p class="section-desc">
+					Scientific calculators and converters for your engineering work.
+				</p>
+			</div>
+
+			<div class="tools-grid">
+				<!-- Ohm's Law -->
+				<div class="tool-card" id="tool-ohm">
+					<div class="tool-header">
+						<span class="tool-icon">⚡</span>
+						<h3>Ohm's Law</h3>
+						<span class="tool-formula">V = I × R</span>
+					</div>
+					<div class="tool-body">
+						<div class="calc-group">
+							<label>Voltage (V)</label>
+							<input type="number" id="ohm-v" placeholder="Volts" />
+						</div>
+						<div class="calc-group">
+							<label>Current (A)</label>
+							<input type="number" id="ohm-i" placeholder="Amps" />
+						</div>
+						<div class="calc-group">
+							<label>Resistance (Ω)</label>
+							<input type="number" id="ohm-r" placeholder="Ohms" />
+						</div>
+						<div class="calc-hint">Leave one field blank to calculate it.</div>
+						<button class="calc-btn" onclick="calcOhm()">
+							<i class="fas fa-calculator"></i> Calculate
+						</button>
+						<div class="calc-result" id="ohm-result"></div>
+					</div>
+				</div>
+
+				<!-- Power Calculator -->
+				<div class="tool-card" id="tool-power">
+					<div class="tool-header">
+						<span class="tool-icon">🔋</span>
+						<h3>Power Calculator</h3>
+						<span class="tool-formula">P = V × I</span>
+					</div>
+					<div class="tool-body">
+						<div class="calc-group">
+							<label>Voltage (V)</label>
+							<input type="number" id="pow-v" placeholder="Volts" />
+						</div>
+						<div class="calc-group">
+							<label>Current (A)</label>
+							<input type="number" id="pow-i" placeholder="Amps" />
+						</div>
+						<div class="calc-group">
+							<label>Resistance (Ω) — optional</label>
+							<input type="number" id="pow-r" placeholder="Ohms (optional)" />
+						</div>
+						<button class="calc-btn" onclick="calcPower()">
+							<i class="fas fa-calculator"></i> Calculate
+						</button>
+						<div class="calc-result" id="pow-result"></div>
+					</div>
+				</div>
+
+				<!-- Voltage Divider -->
+				<div class="tool-card" id="tool-voltage">
+					<div class="tool-header">
+						<span class="tool-icon">〰</span>
+						<h3>Voltage Divider</h3>
+						<span class="tool-formula"
+							>V<sub>out</sub> = V<sub>in</sub> × R2/(R1+R2)</span
+						>
+					</div>
+					<div class="tool-body">
+						<div class="calc-group">
+							<label>Input Voltage (V)</label>
+							<input type="number" id="vd-vin" placeholder="Volts" />
+						</div>
+						<div class="calc-group">
+							<label>R1 (Ω)</label>
+							<input type="number" id="vd-r1" placeholder="Ohms" />
+						</div>
+						<div class="calc-group">
+							<label>R2 (Ω)</label>
+							<input type="number" id="vd-r2" placeholder="Ohms" />
+						</div>
+						<button class="calc-btn" onclick="calcVoltageDivider()">
+							<i class="fas fa-calculator"></i> Calculate
+						</button>
+						<div class="calc-result" id="vd-result"></div>
+					</div>
+				</div>
+
+				<!-- Concentration Calculator -->
+				<div class="tool-card" id="tool-concentration">
+					<div class="tool-header">
+						<span class="tool-icon">🧪</span>
+						<h3>Molarity Calculator</h3>
+						<span class="tool-formula">M = n / V</span>
+					</div>
+					<div class="tool-body">
+						<div class="calc-group">
+							<label>Moles of Solute (mol)</label>
+							<input type="number" id="mol-n" placeholder="Moles" />
+						</div>
+						<div class="calc-group">
+							<label>Volume of Solution (L)</label>
+							<input type="number" id="mol-v" placeholder="Litres" />
+						</div>
+						<div class="calc-group">
+							<label>Molar Mass (g/mol) — optional</label>
+							<input type="number" id="mol-m" placeholder="g/mol" />
+						</div>
+						<button class="calc-btn" onclick="calcMolarity()">
+							<i class="fas fa-calculator"></i> Calculate
+						</button>
+						<div class="calc-result" id="mol-result"></div>
+					</div>
+				</div>
+
+				<!-- Capacitor Reactance -->
+				<div class="tool-card" id="tool-reactance">
+					<div class="tool-header">
+						<span class="tool-icon">∿</span>
+						<h3>Reactance Calculator</h3>
+						<span class="tool-formula">Xc = 1/(2πfC)</span>
+					</div>
+					<div class="tool-body">
+						<div class="calc-group">
+							<label>Type</label>
+							<select id="react-type">
+								<option value="cap">Capacitive (Xc)</option>
+								<option value="ind">Inductive (Xl)</option>
+							</select>
+						</div>
+						<div class="calc-group">
+							<label>Frequency (Hz)</label>
+							<input type="number" id="react-f" placeholder="Hz" />
+						</div>
+						<div class="calc-group">
+							<label id="react-comp-label">Capacitance (F)</label>
+							<input type="number" id="react-comp" placeholder="Value" />
+						</div>
+						<button class="calc-btn" onclick="calcReactance()">
+							<i class="fas fa-calculator"></i> Calculate
+						</button>
+						<div class="calc-result" id="react-result"></div>
+					</div>
+				</div>
+
+				<!-- Resistance Network -->
+				<div class="tool-card" id="tool-resistance">
+					<div class="tool-header">
+						<span class="tool-icon"
+							><i class="fas fa-project-diagram"></i
+						></span>
+						<h3>Resistance Network</h3>
+						<span class="tool-formula">Series / Parallel</span>
+					</div>
+					<div class="tool-body">
+						<div class="calc-group">
+							<label>Mode</label>
+							<select id="res-mode">
+								<option value="series">Series</option>
+								<option value="parallel">Parallel</option>
+							</select>
+						</div>
+						<div class="calc-group">
+							<label>R1 (Ohm)</label>
+							<input type="number" id="res-r1" placeholder="Ohms" />
+						</div>
+						<div class="calc-group">
+							<label>R2 (Ohm)</label>
+							<input type="number" id="res-r2" placeholder="Ohms" />
+						</div>
+						<div class="calc-group">
+							<label>R3 (Ohm) - optional</label>
+							<input type="number" id="res-r3" placeholder="Ohms (optional)" />
+						</div>
+						<button class="calc-btn" onclick="calcResistanceNetwork()">
+							<i class="fas fa-calculator"></i> Calculate
+						</button>
+						<div class="calc-result" id="res-net-result"></div>
+					</div>
+				</div>
+
+				<!-- Capacitor Energy -->
+				<div class="tool-card" id="tool-cap-energy">
+					<div class="tool-header">
+						<span class="tool-icon"><i class="fas fa-bolt"></i></span>
+						<h3>Capacitor Energy</h3>
+						<span class="tool-formula">Q = CV, E = 1/2CV^2</span>
+					</div>
+					<div class="tool-body">
+						<div class="calc-group">
+							<label>Capacitance (F)</label>
+							<input type="number" id="cap-c" placeholder="Farads" />
+						</div>
+						<div class="calc-group">
+							<label>Voltage (V)</label>
+							<input type="number" id="cap-v" placeholder="Volts" />
+						</div>
+						<button class="calc-btn" onclick="calcCapacitorEnergy()">
+							<i class="fas fa-calculator"></i> Calculate
+						</button>
+						<div class="calc-result" id="cap-energy-result"></div>
+					</div>
+				</div>
+
+				<!-- Resonance Calculator -->
+				<div class="tool-card" id="tool-resonance">
+					<div class="tool-header">
+						<span class="tool-icon"><i class="fas fa-wave-square"></i></span>
+						<h3>Resonance Calculator</h3>
+						<span class="tool-formula">f0 = 1/(2π√LC)</span>
+					</div>
+					<div class="tool-body">
+						<div class="calc-group">
+							<label>Inductance (H)</label>
+							<input type="number" id="resonance-l" placeholder="Henries" />
+						</div>
+						<div class="calc-group">
+							<label>Capacitance (F)</label>
+							<input type="number" id="resonance-c" placeholder="Farads" />
+						</div>
+						<button class="calc-btn" onclick="calcResonance()">
+							<i class="fas fa-calculator"></i> Calculate
+						</button>
+						<div class="calc-result" id="resonance-result"></div>
+					</div>
+				</div>
+
+				<!-- Unit Converter -->
+				<div class="tool-card wide-card" id="tool-converter">
+					<div class="tool-header">
+						<span class="tool-icon">⇄</span>
+						<h3>Unit Converter</h3>
+						<span class="tool-formula">Electrical & Scientific</span>
+					</div>
+					<div class="tool-body converter-body">
+						<div class="converter-row">
+							<div class="calc-group">
+								<label>Value</label>
+								<input type="number" id="conv-val" placeholder="Enter value" />
+							</div>
+							<div class="calc-group">
+								<label>From</label>
+								<select id="conv-from">
+									<option value="V">Volts (V)</option>
+									<option value="mV">Millivolts (mV)</option>
+									<option value="uV">Microvolts (uV)</option>
+									<option value="kV">Kilovolts (kV)</option>
+									<option value="A">Amperes (A)</option>
+									<option value="mA">Milliamps (mA)</option>
+									<option value="uA">Microamps (μA)</option>
+									<option value="nA">Nanoamps (nA)</option>
+									<option value="W">Watts (W)</option>
+									<option value="mW">Milliwatts (mW)</option>
+									<option value="uW">Microwatts (uW)</option>
+									<option value="kW">Kilowatts (kW)</option>
+									<option value="Ohm">Ohms (Ω)</option>
+									<option value="mOhm">Milliohms (mOhm)</option>
+									<option value="kOhm">Kilohms (kΩ)</option>
+									<option value="MOhm">Megaohms (MΩ)</option>
+									<option value="GOhm">Gigaohms (GOhm)</option>
+									<option value="Hz">Hertz (Hz)</option>
+									<option value="kHz">Kilohertz (kHz)</option>
+									<option value="MHz">Megahertz (MHz)</option>
+									<option value="GHz">Gigahertz (GHz)</option>
+									<option value="F">Farads (F)</option>
+									<option value="mF">Millifarads (mF)</option>
+									<option value="uF">Microfarads (μF)</option>
+									<option value="nF">Nanofarads (nF)</option>
+									<option value="pF">Picofarads (pF)</option>
+								</select>
+							</div>
+							<div class="calc-group">
+								<label>To</label>
+								<select id="conv-to">
+									<option value="mV">Millivolts (mV)</option>
+									<option value="uV">Microvolts (uV)</option>
+									<option value="V">Volts (V)</option>
+									<option value="kV">Kilovolts (kV)</option>
+									<option value="mA">Milliamps (mA)</option>
+									<option value="A">Amperes (A)</option>
+									<option value="uA">Microamps (μA)</option>
+									<option value="nA">Nanoamps (nA)</option>
+									<option value="mW">Milliwatts (mW)</option>
+									<option value="uW">Microwatts (uW)</option>
+									<option value="W">Watts (W)</option>
+									<option value="kW">Kilowatts (kW)</option>
+									<option value="mOhm">Milliohms (mOhm)</option>
+									<option value="kOhm">Kilohms (kΩ)</option>
+									<option value="Ohm">Ohms (Ω)</option>
+									<option value="MOhm">Megaohms (MΩ)</option>
+									<option value="GOhm">Gigaohms (GOhm)</option>
+									<option value="kHz">Kilohertz (kHz)</option>
+									<option value="Hz">Hertz (Hz)</option>
+									<option value="MHz">Megahertz (MHz)</option>
+									<option value="GHz">Gigahertz (GHz)</option>
+									<option value="mF">Millifarads (mF)</option>
+									<option value="uF">Microfarads (μF)</option>
+									<option value="nF">Nanofarads (nF)</option>
+									<option value="pF">Picofarads (pF)</option>
+									<option value="F">Farads (F)</option>
+								</select>
+							</div>
+						</div>
+						<div class="converter-actions">
+							<button
+								class="calc-btn secondary-btn"
+								onclick="swapConverterUnits()">
+								Swap Units
+							</button>
+							<button class="calc-btn" onclick="convertUnit()">Convert</button>
+						</div>
+						<div class="calc-result" id="conv-result"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Tools End -->
+
+		<!-- Assistant Start -->
+		<section class="assistant-section" id="assistant">
+			<div class="section-header">
+				<h2 class="section-title">
+					<span class="accent">AI</span> Lab Assistant
+				</h2>
+				<p class="section-desc">
+					Ask anything — voice or text. Your intelligent laboratory guide is
+					ready.
+				</p>
+			</div>
+			<div class="assistant-dashboard">
+				<!-- Status Bar -->
+				<div class="assistant-statusbar">
+					<div class="status-indicator" id="statusIndicator">
+						<span class="status-dot" id="statusDot"></span>
+						<span class="status-text" id="statusText">Ready</span>
+					</div>
+					<div class="status-actions">
+						<button
+							class="action-btn"
+							onclick="clearChat()"
+							title="Clear conversation">
+							<i class="fas fa-trash"></i> Clear
+						</button>
+						<button
+							class="action-btn"
+							onclick="exportChat()"
+							title="Export chat">
+							<i class="fas fa-file-export"></i> Export
+						</button>
+					</div>
+				</div>
+				<!-- Chat Window -->
+				<div class="chat-window" id="chatWindow">
+					<div class="chat-welcome">
+						<div class="welcome-icon"><i class="fas fa-robot"></i></div>
+						<p class="welcome-title">LabMate is ready.</p>
+						<p class="welcome-hint">
+							Try: <em>"Explain Ohm's Law"</em> ·
+							<em>"Guide me through a Wheatstone bridge experiment"</em> ·
+							<em>"Find resonance frequency for 10 mH and 100 uF"</em>
+						</p>
+						<div class="quick-prompts">
+							<button
+								class="quick-btn"
+								onclick="sendQuick('Explain inductance')">
+								Inductance?
+							</button>
+							<button
+								class="quick-btn"
+								onclick="sendQuick('What PPE should I wear in the lab?')">
+								PPE Guide
+							</button>
+							<button
+								class="quick-btn"
+								onclick="sendQuick('How to use a multimeter?')">
+								Multimeter
+							</button>
+							<button
+								class="quick-btn"
+								onclick="
+									sendQuick('Guide me through a transformer experiment')
+								">
+								Transformer Exp.
+							</button>
+							<div class="prompt-library" id="assistantPromptLibrary"></div>
+						</div>
+					</div>
+				</div>
+				<!-- Input Area -->
+				<div class="chat-input-area">
+					<div class="input-wrap">
+						<textarea
+							class="chat-input"
+							id="chatInput"
+							placeholder="Ask about circuits, experiments, safety, or any science topic…"
+							rows="1"></textarea>
+						<div class="input-actions">
+							<button
+								class="voice-btn"
+								id="voiceBtn"
+								onclick="toggleVoice()"
+								title="Voice input">
+								<span class="mic-icon" id="micIcon"
+									><i
+										class="fa fa-microphone"
+										aria-hidden="true"
+										style="color: white"></i
+								></span>
+							</button>
+							<button class="send-btn" onclick="sendMessage()" id="sendBtn">
+								<span>Send</span
+								><span class="send-arrow"
+									><i class="fas fa-paper-plane"></i
+								></span>
+							</button>
+						</div>
+					</div>
+					<div class="voice-feedback" id="voiceFeedback"></div>
+				</div>
+			</div>
+		</section>
+		<!-- Assistant End -->
+
+		<!-- Footer Start -->
+		<footer class="footer">
+			<div class="footer-container">
+				<div class="footer-brand">
+					<span class="logo-icon"><i class="fas fa-robot"></i></span>
+					<span class="logo-text"
+						>Lab<span class="logo-accent">Mate</span></span
+					>
+					<p>
+						LabMate — Empowering the next generation of engineers through
+						intelligent, accessible education.
+					</p>
+				</div>
+				<div class="footer-links">
+					<h4>Navigation</h4>
+					<a href="#home">Home</a>
+					<a href="#experiments">Experiments</a>
+					<a href="#safety">Safety</a>
+					<a href="#tools">Tools</a>
+					<a href="#assistant">Assistant</a>
+				</div>
+				<div class="footer-contact">
+					<h4>Team Info</h4>
+					<p>Group 8</p>
+					<p>Department of Computer Engineering</p>
+					<p>Kwame Nkrumah University Of Science and Technology</p>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<script>
+					function updateYear() {
+						const yearText = document.getElementById('currentYear');
+						if (yearText) {
+							yearText.textContent = new Date().getFullYear();
+						}
+					}
+				</script>
+				<span
+					>&copy; <span id="currentYear"></span> LabMate · University
+					Engineering Hackathon</span
+				>
+				<span
+					>Built with <i class="fas fa-heart"></i> for science education</span
+				>
+			</div>
+		</footer>
+		<!-- Footer End -->
+
+		<!-- Modals Start -->
+		<!-- Saftey Modal Start -->
+		<div
+			class="modal-overlay"
+			id="safetyModal"
+			onclick="closeSafetyModal(event)">
+			<div class="modal-box">
+				<button class="modal-close" onclick="closeSafetyModal()">✕</button>
+				<div class="modal-icon" id="modalIcon"></div>
+				<h2 id="modalTitle"></h2>
+				<div class="modal-content" id="modalContent"></div>
+				<button class="calc-btn" onclick="askAssistantSafety()">
+					Ask Assistant for More
+				</button>
+			</div>
+		</div>
+		<!-- Safety Modal End -->
+		<!-- Experiments Modal Start -->
+		<div class="modal-overlay" id="expModal" onclick="closeExpModal(event)">
+			<div class="modal-box exp-modal-box">
+				<button class="modal-close" onclick="closeExpModal()">✕</button>
+				<div class="exp-modal-header" id="expModalHeader"></div>
+				<div class="exp-modal-content" id="expModalContent"></div>
+				<button class="calc-btn" onclick="guideExperiment()">
+					Get AI Guidance
+				</button>
+			</div>
+		</div>
+		<!-- Experiments Modal End -->
+		<!-- Modals End -->
+
+		<script src="script.js"></script>
+	</body>
+</html>
