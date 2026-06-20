@@ -2419,6 +2419,7 @@ const ChatModule = (() => {
 						<div class="welcome-icon"><i class="fas fa-robot"></i></div>
 						<p class="welcome-title">LabMate is ready.</p>
 						<p class="welcome-hint">Do you want our prompt-library?</p>
+						<div class='prompt-library' id='assistantPromptLibrary'></div>
 						<div class="quick-prompts">
 							<button class="quick-btn" id='promptLibraryToggleBtn' onclick="displayPromptLibrary()">
 								Show Prompt Library
