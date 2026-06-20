@@ -1626,7 +1626,7 @@ const IntentRouter = (() => {
 		// Calculation intents
 		{
 			pattern:
-				/calculat|compute|find|what.*(resistance|voltage|current|power|ohm)/i,
+				/calculate|compute|calc|find|what.*(resistance|voltage|current|power|ohm)/i,
 			intent: 'CALC_GUIDE',
 		},
 		{
@@ -1929,7 +1929,7 @@ const ChatModule = (() => {
 		const chatWindow = document.getElementById('chatWindow');
 		const div = document.createElement('div');
 		div.className = 'message assistant typing-msg';
-		div.innerHTML = `<div class="msg-avatar">⚗</div>
+		div.innerHTML = `<div class="msg-avatar"><i class="fas fa-robot"></i></div>
 		<div class="msg-bubble"><div class="typing-indicator">
 			<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
 		</div></div>`;
@@ -1968,7 +1968,7 @@ const ChatModule = (() => {
 		const intent = IntentRouter.classify(input);
 
 		if (intent === 'GREET') {
-			return `Welcome to Virtual Lab Assistant! 👋<br>
+			return `Welcome to LabMate! 👋<br>
         I'm your AI-powered lab instructor. I can help you with:<br><br>
         • <strong>Explanations</strong>: circuits, physics, chemistry<br>
         • <strong>Experiment guidance</strong>: step-by-step procedures<br>
@@ -3081,5 +3081,5 @@ function scrollToSection(section) {
 		document.body.style.overflow = '';
 	};
 
-	console.log('Virtual Lab Assistant — Initialized');
+	console.log('LabMate — Initialized');
 })();

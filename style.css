@@ -22,7 +22,6 @@
 	--red: #ff4757;
 	--orange: #ffa502;
 	--green: #2ed573;
-	--purple: #9b59b6;
 	--font-display: 'Orbitron', monospace;
 	--font-body: 'Exo 2', sans-serif;
 	--font-mono: 'Share Tech Mono', monospace;
@@ -1374,9 +1373,6 @@ section {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-	.hero-visual {
-		display: none;
-	}
 	.footer-container {
 		grid-template-columns: 1fr 1fr;
 	}
