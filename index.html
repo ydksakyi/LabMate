@@ -30,6 +30,15 @@
 					<li><a href="#safety" class="nav-link">Safety</a></li>
 					<li><a href="#tools" class="nav-link">Tools</a></li>
 					<li><a href="#assistant" class="nav-link">Assistant</a></li>
+					<li>
+						<a
+							href="https://integrated-virtual-lab-assistant.vercel.app/"
+							class="vr-btn"
+							style="text-decoration: none"
+							target="_blank"
+							>Launch VR Virtul Lab</a
+						>
+					</li>
 				</ul>
 				<button class="hamburger" id="hamburger" aria-label="Menu">
 					<span></span><span></span><span></span>
@@ -47,8 +56,9 @@
 					>
 				</h1>
 				<p class="hero-subtitle">
-					Your AI-powered laboratory instructor — available 24/7 for guidance,
-					calculations, safety advice, and experiment walkthroughs.
+					An intelligent laboratory companion that helps you understand
+					procedures, perform calculations, follow safety standards and gain
+					deeper insights intp scientific experiements anytime, at any moment.
 				</p>
 				<div class="hero-actions">
 					<button class="btn-primary" onclick="scrollToAssistant()">
@@ -79,13 +89,6 @@
 						</span>
 						Lab Calculators
 					</button>
-					<a
-						href="https://integrated-virtual-lab-assistant.vercel.app/"
-						class="btn-primary"
-						style="text-decoration: none;"
-						target="_blank"
-						>Launch VR Virtul Lab</a
-					>
 				</div>
 			</div>
 		</section>
@@ -561,10 +564,19 @@
 					<div class="chat-welcome">
 						<div class="welcome-icon"><i class="fas fa-robot"></i></div>
 						<p class="welcome-title">LabMate is ready.</p>
+						<p class="welcome-hint">Do you want our prompt-library?</p>
+						<div class="quick-prompts">
+							<div class="prompt-library" id="assistantPromptLibrary"></div>
+							<button
+								class="quick-btn"
+								id="promptLibraryToggleBtn"
+								onclick="displayPromptLibrary()">
+								Show Prompt Library
+							</button>
+						</div>
 						<p class="welcome-hint">
-							Try: <em>"Explain Ohm's Law"</em> ·
+							Or you can try:
 							<em>"Guide me through a Wheatstone bridge experiment"</em> ·
-							<em>"Find resonance frequency for 10 mH and 100 uF"</em>
 						</p>
 						<div class="quick-prompts">
 							<button
@@ -589,7 +601,6 @@
 								">
 								Transformer Exp.
 							</button>
-							<div class="prompt-library" id="assistantPromptLibrary"></div>
 						</div>
 					</div>
 				</div>

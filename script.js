@@ -101,7 +101,7 @@ const KnowledgeModule = (() => {
 
 		kirchhoff: `<strong>Kirchhoff's Laws</strong> govern current and voltage in electrical circuits.<br><br>
     <strong>KCL – Current Law:</strong> The sum of currents entering a node = sum leaving it.<br>
-    ΣI_in = ΣI_out<br><br>
+    ΣI<sub>in</sub> = ΣI<sub>out</sub><br><br>
     <strong>KVL – Voltage Law:</strong> The sum of all voltages around any closed loop = 0.<br>
     ΣV = 0 (around any loop)<br><br>
     <strong>Application:</strong> Used to solve complex networks with multiple sources and resistors (mesh analysis, nodal analysis).`,
@@ -191,7 +191,7 @@ const KnowledgeModule = (() => {
     <strong>Dilution:</strong> C₁V₁ = C₂V₂<br><br>
     <em class="warn">Always wear PPE when preparing chemical solutions. Work in a fume hood for volatile substances.</em>`,
 
-		'power supply': `<strong>Laboratory Power Supply</strong><br><br>
+		power_supply: `<strong>Laboratory Power Supply</strong><br><br>
     <strong>Types:</strong><br>
     • Linear: stable, low noise — ideal for sensitive circuits<br>
     • Switch-mode (SMPS): efficient, compact<br><br>
@@ -212,7 +212,7 @@ const KnowledgeModule = (() => {
     </ul>
     <em class="warn">Keep the supply off while rewiring.</em>`,
 
-		'function generator': `<strong>Function Generator Basics</strong><br><br>
+		function_generator: `<strong>Function Generator Basics</strong><br><br>
     <ul>
 		<li>Select the waveform: sine, square, or triangle.</li>
 		<li>Set frequency, amplitude, and DC offset before connecting.</li>
@@ -221,7 +221,7 @@ const KnowledgeModule = (() => {
 		<li>Keep generator ground and circuit ground common.</li>
     </ul>`,
 
-		'pre lab checklist': `<strong>Pre-Lab Checklist</strong><br><br>
+		pre_lab_checklist: `<strong>Pre-Lab Checklist</strong><br><br>
     <ul>
 		<li>Read the aim and theory before entering the lab.</li>
 		<li>List the formulas and expected values you will need.</li>
@@ -230,7 +230,7 @@ const KnowledgeModule = (() => {
 		<li>Note what must be measured, calculated, and plotted.</li>
     </ul>`,
 
-		'lab report outline': `<strong>Lab Report Outline</strong><br><br>
+		lab_report_outline: `<strong>Lab Report Outline</strong><br><br>
     <ul>
 		<li><strong>Title and aim</strong> - state the experiment and objective.</li>
 		<li><strong>Theory</strong> - include the key formulas and principles.</li>
@@ -240,77 +240,107 @@ const KnowledgeModule = (() => {
 		<li><strong>Conclusion</strong> - state what was proven or measured.</li>
     </ul>`,
 
-		'data table template': `<strong>Data Table Template</strong><br><br>
+		data_table_template: `<strong>Data Table Template</strong><br><br>
     <ul>
-      <li>Trial number</li>
-      <li>Input setting or condition</li>
-      <li>Measured value</li>
-      <li>Units</li>
-      <li>Notes or anomalies</li>
+		<li>Trial number</li>
+		<li>Input setting or condition</li>
+		<li>Measured value</li>
+		<li>Units</li>
+		<li>Notes or anomalies</li>
     </ul>
     <em>Build the table before the experiment starts.</em>`,
 
-		'graphing checklist': `<strong>Graphing Checklist</strong><br><br>
+		graphing_checklist: `<strong>Graphing Checklist</strong><br><br>
     <ul>
-      <li>Label both axes and include units.</li>
-      <li>Use a scale that fills most of the page.</li>
-      <li>Plot points clearly and draw a best-fit line.</li>
-      <li>Identify slope, intercept, and any outliers.</li>
-      <li>Add error bars when uncertainty matters.</li>
+		<li>Label both axes and include units.</li>
+		<li>Use a scale that fills most of the page.</li>
+		<li>Plot points clearly and draw a best-fit line.</li>
+		<li>Identify slope, intercept, and any outliers.</li>
+		<li>Add error bars when uncertainty matters.</li>
     </ul>`,
 
-		'troubleshoot no output': `<strong>Troubleshooting: No Output</strong><br><br>
+		troubleshoot_no_output: `<strong>Troubleshooting: No Output</strong><br><br>
     <ul>
-      <li>Verify the power supply is on and current limit is not tripped.</li>
-      <li>Check that the ground reference is correct.</li>
-      <li>Confirm component polarity and orientation.</li>
-      <li>Test continuity from source to load.</li>
-      <li>Probe the signal stage by stage to find the break point.</li>
+		<li>Verify the power supply is on and current limit is not tripped.</li>
+		<li>Check that the ground reference is correct.</li>
+		<li>Confirm component polarity and orientation.</li>
+		<li>Test continuity from source to load.</li>
+		<li>Probe the signal stage by stage to find the break point.</li>
     </ul>`,
 
-		'noisy readings': `<strong>Fix Noisy Readings</strong><br><br>
+		noisy_readings: `<strong>Fix Noisy Readings</strong><br><br>
     <ul>
-      <li>Shorten leads and keep the ground lead short.</li>
-      <li>Separate signal wiring from noisy power wiring.</li>
-      <li>Use shielding, averaging, or a bandwidth limit when needed.</li>
-      <li>Add decoupling capacitors near active devices.</li>
-      <li>Check for loose contacts on the breadboard.</li>
+		<li>Shorten leads and keep the ground lead short.</li>
+		<li>Separate signal wiring from noisy power wiring.</li>
+		<li>Use shielding, averaging, or a bandwidth limit when needed.</li>
+		<li>Add decoupling capacitors near active devices.</li>
+		<li>Check for loose contacts on the breadboard.</li>
     </ul>`,
 
-		'oscilloscope clipping': `<strong>Oscilloscope Clipping</strong><br><br>
+		oscilloscope_clipping: `<strong>Oscilloscope Clipping</strong><br><br>
     <ul>
-      <li>Increase volts/div or reduce the signal amplitude.</li>
-      <li>Check the probe attenuation setting and scope factor.</li>
-      <li>Center the waveform and reduce DC offset if needed.</li>
-      <li>Make sure the input range is not exceeded.</li>
+		<li>Increase volts/div or reduce the signal amplitude.</li>
+		<li>Check the probe attenuation setting and scope factor.</li>
+		<li>Center the waveform and reduce DC offset if needed.</li>
+		<li>Make sure the input range is not exceeded.</li>
     </ul>`,
 
-		'component overheating': `<strong>Component Overheating</strong><br><br>
+		component_overheating: `<strong>Component Overheating</strong><br><br>
     <ul>
-      <li>Check that the current is within component limits.</li>
-      <li>Verify the component value is correct.</li>
-      <li>Look for short circuits or reversed polarity.</li>
-      <li>Compare power dissipation with the rating.</li>
-      <li>Stop the test if the part discolors, smells, or becomes too hot.</li>
+		<li>Check that the current is within component limits.</li>
+		<li>Verify the component value is correct.</li>
+		<li>Look for short circuits or reversed polarity.</li>
+		<li>Compare power dissipation with the rating.</li>
+		<li>Stop the test if the part discolors, smells, or becomes too hot.</li>
     </ul>`,
 
-		'viva prep': `<strong>Viva Preparation</strong><br><br>
+		viva_prep: `<strong>Viva Preparation</strong><br><br>
     <ul>
-      <li>Know the objective, theory, and key formulas.</li>
-      <li>Be able to explain every instrument you used.</li>
-      <li>Know the main sources of error and their effect on results.</li>
-      <li>Practice a one-minute summary of the experiment.</li>
-      <li>Review the safety points before entering the lab.</li>
+		<li>Know the objective, theory, and key formulas.</li>
+		<li>Be able to explain every instrument you used.</li>
+		<li>Know the main sources of error and their effect on results.</li>
+		<li>Practice a one-minute summary of the experiment.</li>
+		<li>Review the safety points before entering the lab.</li>
     </ul>`,
 
-		'conclusion writing': `<strong>Conclusion Writing</strong><br><br>
+		conclusion_writing: `<strong>Conclusion Writing</strong><br><br>
     <ul>
-      <li>State the main result in one or two sentences.</li>
-      <li>Say whether the aim was achieved.</li>
-      <li>Refer to the key numbers or graphs, not just opinions.</li>
-      <li>Mention the largest source of error.</li>
-      <li>Keep the conclusion short and direct.</li>
+		<li>State the main result in one or two sentences.</li>
+		<li>Say whether the aim was achieved.</li>
+		<li>Refer to the key numbers or graphs, not just opinions.</li>
+		<li>Mention the largest source of error.</li>
+		<li>Keep the conclusion short and direct.</li>
     </ul>`,
+		op_amp: `<strong>Operational Amplifiers (Op-Amps)</strong><br><br>
+    An op-amp is a high-gain differential amplifier used for signal conditioning and computation.<br><br>
+    <strong>Ideal assumptions:</strong><br>
+    • Infinite open-loop gain<br>
+    • Infinite input impedance<br>
+    • Zero output impedance<br>
+    • Virtual short between inputs (under negative feedback)<br><br>
+    <strong>Inverting amplifier:</strong> Av = -Rf/Rin (180° phase shift)<br>
+    <strong>Non-inverting amplifier:</strong> Av = 1 + Rf/Rg (in phase)<br><br>
+    <strong>Common uses:</strong> Amplifiers, comparators, active filters, oscillators, summing and difference circuits.`,
+
+		'555 timer': `<strong>555 Timer IC</strong><br><br>
+    A versatile IC used to generate precise time delays or oscillations.<br><br>
+    <strong>Astable mode:</strong> Free-running oscillator<br>
+    • Frequency: f = 1.44 / ((Ra + 2Rb) × C)<br>
+    • Duty cycle: D = (Ra + Rb) / (Ra + 2Rb)<br><br>
+    <strong>Monostable mode:</strong> One-shot pulse generator<br>
+    • Pulse width: t = 1.1 × R × C<br><br>
+    <strong>Pin functions:</strong> Trigger, Threshold, Discharge, Reset, Control Voltage, Output.<br><br>
+    <em class="warn">⚠ Check IC pin orientation before powering — reversed power can destroy the chip.</em>`,
+
+		refraction: `<strong>Refraction & Snell's Law</strong><br><br>
+    Refraction is the bending of light as it passes between media of different optical density.<br><br>
+    <strong>Snell's Law:</strong> n1 sin(θ1) = n2 sin(θ2)<br><br>
+    <strong>Refractive index:</strong> n = sin(i)/sin(r) = c/v<br><br>
+    <strong>Key points:</strong><br>
+    • Light bends toward the normal entering a denser medium<br>
+    • Light bends away from the normal entering a less dense medium<br>
+    • Total internal reflection occurs above the critical angle<br><br>
+    <strong>Critical angle:</strong> sin(θc) = n2/n1 (for n1 &gt; n2)`,
 	};
 
 	function query(input) {
@@ -353,15 +383,15 @@ const SafetyModule = (() => {
         </ul>
         <h4>Storage</h4>
         <ul>
-          <li>Segregate incompatible chemicals (oxidizers from flammables).</li>
-          <li>Store flammables away from heat sources in approved cabinets.</li>
-          <li>Keep volatile solvents in sealed containers.</li>
+			<li>Segregate incompatible chemicals (oxidizers from flammables).</li>
+			<li>Store flammables away from heat sources in approved cabinets.</li>
+			<li>Keep volatile solvents in sealed containers.</li>
         </ul>
         <h4>Emergency Response — Chemical Splash</h4>
         <ul>
-          <li>Immediately flush with running water for 15–20 minutes.</li>
-          <li>Remove contaminated clothing.</li>
-          <li>Seek medical attention immediately.</li>
+			<li>Immediately flush with running water for 15–20 minutes.</li>
+			<li>Remove contaminated clothing.</li>
+			<li>Seek medical attention immediately.</li>
         </ul>`,
 		},
 
@@ -371,31 +401,31 @@ const SafetyModule = (() => {
 			content: `
         <h4>⚠ Golden Rules</h4>
         <ul>
-          <li class="danger">Treat all conductors as live until proven otherwise.</li>
-          <li>Always use one hand when working near live circuits.</li>
-          <li>Use insulated tools rated for the voltage.</li>
-          <li>Never work alone on live high-voltage equipment.</li>
+			<li class="danger">Treat all conductors as live until proven otherwise.</li>
+			<li>Always use one hand when working near live circuits.</li>
+			<li>Use insulated tools rated for the voltage.</li>
+			<li>Never work alone on live high-voltage equipment.</li>
         </ul>
         <h4>Before Starting</h4>
         <ul>
-          <li>Lock Out / Tag Out (LOTO) all energy sources.</li>
-          <li>Verify zero voltage with an approved meter.</li>
-          <li>Discharge capacitors before touching.</li>
-          <li>Inspect insulation on all cables — replace if damaged.</li>
+			<li>Lock Out / Tag Out (LOTO) all energy sources.</li>
+			<li>Verify zero voltage with an approved meter.</li>
+			<li>Discharge capacitors before touching.</li>
+			<li>Inspect insulation on all cables — replace if damaged.</li>
         </ul>
         <h4>Working Safely</h4>
         <ul>
-          <li>Use GFCIs (Ground Fault Circuit Interrupters).</li>
-          <li>Keep work area dry — water and electricity are lethal.</li>
-          <li>Use appropriate PPE: insulated gloves, safety glasses.</li>
-          <li>Avoid loose clothing near rotating electrical machinery.</li>
+			<li>Use GFCIs (Ground Fault Circuit Interrupters).</li>
+			<li>Keep work area dry — water and electricity are lethal.</li>
+			<li>Use appropriate PPE: insulated gloves, safety glasses.</li>
+			<li>Avoid loose clothing near rotating electrical machinery.</li>
         </ul>
         <h4>Emergency — Electrical Accident</h4>
         <ul>
-          <li class="danger">DO NOT touch the victim — de-energize first!</li>
-          <li>Switch off power or use non-conducting object to move them.</li>
-          <li>Call emergency services immediately.</li>
-          <li>Begin CPR if victim is unresponsive and not breathing.</li>
+			<li class="danger">DO NOT touch the victim — de-energize first!</li>
+			<li>Switch off power or use non-conducting object to move them.</li>
+			<li>Call emergency services immediately.</li>
+			<li>Begin CPR if victim is unresponsive and not breathing.</li>
         </ul>`,
 		},
 
@@ -405,27 +435,27 @@ const SafetyModule = (() => {
 			content: `
         <h4>⚠ Key Precautions</h4>
         <ul>
-          <li>Never reach into moving machinery.</li>
-          <li>Ensure all guards and covers are in place before starting equipment.</li>
-          <li>Secure workpieces properly before machining.</li>
+			<li>Never reach into moving machinery.</li>
+			<li>Ensure all guards and covers are in place before starting equipment.</li>
+			<li>Secure workpieces properly before machining.</li>
         </ul>
         <h4>Rotating Equipment</h4>
         <ul>
-          <li class="danger">Never wear loose clothing, ties, or jewellery near lathes, drills, or motors.</li>
-          <li>Tie back long hair securely.</li>
-          <li>Always stop the machine before making adjustments.</li>
-        </ul>
+			<li class="danger">Never wear loose clothing, ties, or jewellery near lathes, drills, or motors.</li>
+			<li>Tie back long hair securely.</li>
+			<li>Always stop the machine before making adjustments.</li>
+		</ul>
         <h4>Hand Tools</h4>
         <ul>
-          <li>Use the correct tool for each job.</li>
-          <li>Inspect tools before use — report damaged tools.</li>
-          <li>Keep cutting tools sharp — dull tools require more force and slip.</li>
+			<li>Use the correct tool for each job.</li>
+			<li>Inspect tools before use — report damaged tools.</li>
+			<li>Keep cutting tools sharp — dull tools require more force and slip.</li>
         </ul>
         <h4>Heavy Loads</h4>
         <ul>
-          <li>Use mechanical aids (hoists, trolleys) for heavy equipment.</li>
-          <li>Bend knees and keep back straight when lifting.</li>
-          <li>Get assistance for loads over 25 kg.</li>
+			<li>Use mechanical aids (hoists, trolleys) for heavy equipment.</li>
+			<li>Bend knees and keep back straight when lifting.</li>
+			<li>Get assistance for loads over 25 kg.</li>
         </ul>`,
 		},
 
@@ -435,14 +465,14 @@ const SafetyModule = (() => {
 			content: `
         <h4>Handling</h4>
         <ul>
-          <li>Keep hands away from shards and clear the area.</li>
-          <li>Use a brush and dustpan or forceps, never bare hands.</li>
-          <li>Place fragments in the designated broken-glass container.</li>
+			<li>Keep hands away from shards and clear the area.</li>
+			<li>Use a brush and dustpan or forceps, never bare hands.</li>
+			<li>Place fragments in the designated broken-glass container.</li>
         </ul>
         <h4>If Cut</h4>
         <ul>
-          <li>Rinse the wound, apply pressure, and report the injury.</li>
-          <li>Seek medical help if the cut is deep or contaminated.</li>
+			<li>Rinse the wound, apply pressure, and report the injury.</li>
+			<li>Seek medical help if the cut is deep or contaminated.</li>
         </ul>`,
 		},
 
@@ -452,30 +482,30 @@ const SafetyModule = (() => {
 			content: `
         <h4 class="danger">🔥 Fire</h4>
         <ul>
-          <li>Activate the fire alarm immediately.</li>
-          <li>Evacuate — do not use lifts.</li>
-          <li>Only attempt to extinguish a small fire if trained to do so.</li>
-          <li>Use correct extinguisher: CO₂ for electrical, powder for chemical, water for paper/wood.</li>
-          <li>Meet at designated assembly point.</li>
+			<li>Activate the fire alarm immediately.</li>
+			<li>Evacuate — do not use lifts.</li>
+			<li>Only attempt to extinguish a small fire if trained to do so.</li>
+			<li>Use correct extinguisher: CO₂ for electrical, powder for chemical, water for paper/wood.</li>
+			<li>Meet at designated assembly point.</li>
         </ul>
         <h4 class="danger">☣ Chemical Spill</h4>
         <ul>
-          <li>Alert others and evacuate the area if a large spill occurs.</li>
-          <li>Use spill kit for small, known, low-hazard spills.</li>
-          <li>Never clean up unknown chemicals without guidance.</li>
-          <li>Report all spills to the laboratory supervisor.</li>
+			<li>Alert others and evacuate the area if a large spill occurs.</li>
+			<li>Use spill kit for small, known, low-hazard spills.</li>
+			<li>Never clean up unknown chemicals without guidance.</li>
+			<li>Report all spills to the laboratory supervisor.</li>
         </ul>
         <h4 class="danger">⚡ Electrical Accident</h4>
         <ul>
-          <li class="danger">Switch off power FIRST. Do NOT touch the victim.</li>
-          <li>Call emergency services immediately (999 / 112 / 911).</li>
-          <li>Administer first aid — CPR if unresponsive.</li>
+			<li class="danger">Switch off power FIRST. Do NOT touch the victim.</li>
+			<li>Call emergency services immediately (999 / 112 / 911).</li>
+			<li>Administer first aid — CPR if unresponsive.</li>
         </ul>
         <h4>General Emergency Numbers</h4>
         <ul>
-          <li>Emergency Services: 999 / 112 / 911</li>
-          <li>Poison Control: Contact your regional center</li>
-          <li>Laboratory Supervisor on duty</li>
+			<li>Emergency Services: 999 / 112 / 911</li>
+			<li>Poison Control: Contact your regional center</li>
+			<li>Laboratory Supervisor on duty</li>
         </ul>`,
 		},
 
@@ -485,10 +515,10 @@ const SafetyModule = (() => {
 			content: `
         <h4>Minimum Lab Requirements (ALL experiments)</h4>
         <ul>
-          <li>✅ Safety glasses or goggles</li>
-          <li>✅ Closed-toe shoes (no sandals)</li>
-          <li>✅ Long trousers (no shorts)</li>
-          <li>✅ Lab coat or protective clothing</li>
+			<li>✅ Safety glasses or goggles</li>
+			<li>✅ Closed-toe shoes (no sandals)</li>
+			<li>✅ Long trousers (no shorts)</li>
+			<li>✅ Lab coat or protective clothing</li>
         </ul>
         <h4>Chemical Work</h4>
         <ul>
@@ -1203,6 +1233,275 @@ const ExperimentsModule = (() => {
 			results:
 				'The calculated specific heat should be close to the accepted value, typically within 5 to 10 percent.',
 		},
+		{
+			id: 17,
+			category: 'electrical',
+			title: 'Induction Motor Slip Test',
+			desc: 'Measure slip and speed-load behavior of a three-phase induction motor.',
+			difficulty: 'medium',
+			time: '90 min',
+			objective:
+				'Determine the slip, synchronous speed, and rotor speed of a three-phase induction motor under varying load.',
+			equipment: [
+				'Three-phase induction motor',
+				'Three-phase AC supply',
+				'Tachometer or stroboscope',
+				'Loading arrangement (brake or generator)',
+				'Ammeter (×3)',
+				'Voltmeter',
+				'Wattmeter',
+			],
+			safety: [
+				'Ensure motor mounting is secure before starting.',
+				'Keep clear of the rotating shaft and coupling.',
+				'Do not exceed motor nameplate current.',
+				'Use proper lockout before changing connections.',
+			],
+			procedure: [
+				'Record the motor nameplate data: rated voltage, current, power, poles, frequency.',
+				'Calculate synchronous speed: Ns = 120f/P.',
+				'Start the motor at no load and measure no-load speed with a tachometer.',
+				'Apply load in steps using the loading arrangement.',
+				'Record speed, line current, and input power at each load step.',
+				'Calculate slip: s = (Ns - Nr)/Ns × 100%.',
+				'Plot slip versus load and speed versus load curves.',
+			],
+			results:
+				'Slip increases with load while speed decreases slightly below synchronous speed. Slip is typically 2–5% at full load for standard induction motors.',
+		},
+		{
+			id: 18,
+			category: 'electronics',
+			title: 'Op-Amp Inverting and Non-Inverting Amplifiers',
+			desc: 'Build and test inverting and non-inverting op-amp configurations; verify gain equations.',
+			difficulty: 'easy',
+			time: '60 min',
+			objective:
+				'Construct inverting and non-inverting amplifier circuits using an op-amp and verify the theoretical gain equations.',
+			equipment: [
+				'LM741 or similar op-amp',
+				'Resistors (1kΩ, 10kΩ, 100kΩ)',
+				'Dual DC power supply (±12V)',
+				'Function generator',
+				'Oscilloscope',
+				'Breadboard',
+			],
+			safety: [
+				'Connect dual supply rails with correct polarity.',
+				'Do not exceed op-amp supply voltage ratings.',
+				'Power off before changing resistor values.',
+			],
+			procedure: [
+				'Build an inverting amplifier: Rf=100kΩ, Rin=10kΩ, non-inverting input grounded.',
+				'Apply a 1kHz sine wave (0.5Vpp) to the input.',
+				'Measure Vin and Vout on the oscilloscope; verify the 180° phase shift.',
+				'Calculate gain: Av = -Rf/Rin and compare with the measured Vout/Vin.',
+				'Rebuild as a non-inverting amplifier: Rf=100kΩ, Rg=10kΩ.',
+				'Repeat the measurement and calculate Av = 1 + Rf/Rg.',
+				'Compare measured and theoretical gains for both configurations.',
+			],
+			results:
+				'Inverting gain ≈ -Rf/Rin with a 180° phase shift. Non-inverting gain ≈ 1 + Rf/Rg, in phase with the input.',
+		},
+		{
+			id: 19,
+			category: 'physics',
+			title: "Young's Modulus by Beam Bending",
+			desc: "Determine a beam's Young's modulus by measuring deflection under load.",
+			difficulty: 'medium',
+			time: '70 min',
+			objective:
+				"Determine the Young's modulus of a beam material using the simply-supported beam bending method.",
+			equipment: [
+				'Metal beam (known dimensions)',
+				'Knife-edge supports',
+				'Slotted weights',
+				'Travelling microscope or dial gauge',
+				'Vernier calipers',
+				'Meter rule',
+			],
+			safety: [
+				'Do not exceed the elastic limit of the beam.',
+				'Secure weights to prevent them from falling.',
+				'Handle the travelling microscope carefully.',
+			],
+			procedure: [
+				'Measure the length, breadth, and thickness of the beam with vernier calipers.',
+				'Set up the beam on knife-edge supports with a known span L.',
+				'Record the initial reading of the microscope or dial gauge at the beam midpoint.',
+				'Add weights in equal increments and record the deflection at each step.',
+				'Remove the weights in the same steps and record deflection again.',
+				'Plot load versus deflection — the graph should be linear.',
+				"Calculate Young's modulus using E = (W L^3) / (4 b d^3 y) for a simply supported beam.",
+			],
+			results:
+				"The load-deflection graph should be a straight line. The calculated Young's modulus should be close to the accepted value for the beam material.",
+		},
+		{
+			id: 20,
+			category: 'control',
+			title: 'Open-Loop vs Closed-Loop Speed Control',
+			desc: 'Compare open-loop and closed-loop control of DC motor speed under disturbance.',
+			difficulty: 'medium',
+			time: '90 min',
+			objective:
+				'Compare the speed regulation of a DC motor under open-loop and closed-loop feedback control when subjected to load disturbances.',
+			equipment: [
+				'DC motor',
+				'Tachogenerator or encoder for speed feedback',
+				'PWM motor driver',
+				'Microcontroller or analog controller',
+				'Variable load (brake/dynamometer)',
+				'Power supply',
+			],
+			safety: [
+				'Keep hands clear of the rotating shaft and coupling.',
+				'Ensure the load brake is properly secured.',
+				'Use a current-limited supply.',
+			],
+			procedure: [
+				'Configure the motor driver in open-loop mode using a fixed PWM duty cycle.',
+				'Record steady-state speed at no load.',
+				'Apply load disturbance in steps and record the speed drop at each step.',
+				'Switch to closed-loop mode using tachogenerator feedback and a P or PI controller.',
+				'Repeat the same load steps and record the corrected speed.',
+				'Compare the percentage speed drop between open-loop and closed-loop cases.',
+				'Plot speed versus load for both control modes on the same graph.',
+			],
+			results:
+				'Open-loop speed drops significantly with load. Closed-loop control maintains speed close to the setpoint despite load disturbances.',
+		},
+		{
+			id: 21,
+			category: 'chemistry',
+			title: 'pH Determination Using Indicators and a pH Meter',
+			desc: 'Measure the pH of various solutions using indicators and compare with a calibrated pH meter.',
+			difficulty: 'easy',
+			time: '50 min',
+			objective:
+				'Determine the pH of given solutions using indicator color charts and a calibrated pH meter, and compare the results.',
+			equipment: [
+				'pH meter with calibration buffers (pH 4, 7, 10)',
+				'Universal indicator solution or paper',
+				'Test tubes',
+				'Sample solutions (vinegar, soap solution, tap water, etc.)',
+				'Distilled water',
+				'Safety goggles, gloves',
+			],
+			safety: [
+				'Wear goggles and gloves when handling samples.',
+				'Rinse the pH electrode with distilled water between samples.',
+				'Handle the glass electrode carefully — it is fragile.',
+			],
+			procedure: [
+				'Calibrate the pH meter using pH 4, 7, and 10 buffer solutions.',
+				'Add a few drops of universal indicator to each sample and compare the color to the chart.',
+				'Record the estimated pH from the indicator for each sample.',
+				'Rinse the electrode and measure the actual pH of each sample with the pH meter.',
+				'Tabulate indicator estimates versus meter readings for each sample.',
+				'Discuss any discrepancies between the indicator and meter values.',
+			],
+			results:
+				'Indicator estimates should be reasonably close to the meter readings, typically within about 0.5–1 pH unit.',
+		},
+		{
+			id: 22,
+			category: 'electronics',
+			title: '555 Timer Astable Multivibrator',
+			desc: 'Build a 555 timer astable circuit and measure frequency and duty cycle.',
+			difficulty: 'easy',
+			time: '55 min',
+			objective:
+				'Construct a 555 timer astable multivibrator and verify the theoretical frequency and duty cycle equations.',
+			equipment: [
+				'NE555 timer IC',
+				'Resistors (1kΩ, 10kΩ)',
+				'Capacitors (0.01μF, 10μF)',
+				'DC power supply (5–12V)',
+				'Oscilloscope',
+				'Breadboard',
+			],
+			safety: [
+				'Check IC pin orientation before powering the circuit.',
+				'Do not exceed the IC supply voltage rating.',
+				'Discharge timing capacitors before rewiring.',
+			],
+			procedure: [
+				'Wire the 555 timer in astable mode with Ra, Rb, and a timing capacitor C.',
+				'Connect the output (pin 3) to the oscilloscope.',
+				'Power the circuit and observe the square wave output.',
+				'Measure the high time, low time, and period of the waveform.',
+				'Calculate frequency: f = 1.44/((Ra+2Rb)C) and duty cycle: D = (Ra+Rb)/(Ra+2Rb).',
+				'Compare the measured frequency and duty cycle with the calculated values.',
+				'Change Ra or Rb and observe the effect on frequency and duty cycle.',
+			],
+			results:
+				'Measured frequency and duty cycle should closely match the calculated theoretical values within component tolerance.',
+		},
+		{
+			id: 23,
+			category: 'physics',
+			title: "Refraction and Snell's Law",
+			desc: 'Determine the refractive index of a glass block from angles of incidence and refraction.',
+			difficulty: 'easy',
+			time: '45 min',
+			objective:
+				"Verify Snell's Law and determine the refractive index of a glass block.",
+			equipment: [
+				'Rectangular glass block',
+				'Ray box or laser pointer',
+				'Protractor',
+				'Plain paper',
+				'Pins (if using the pin method)',
+				'Pencil and ruler',
+			],
+			safety: [
+				'Avoid pointing the laser or light source at eyes.',
+				'Handle the glass block carefully to avoid chipping.',
+			],
+			procedure: [
+				'Place the glass block on paper and trace its outline.',
+				'Direct a light ray at a known angle of incidence onto one face of the block.',
+				'Mark the path of the incident and emergent rays.',
+				'Remove the block and draw the normal at the point of incidence.',
+				'Measure the angle of incidence and angle of refraction with a protractor.',
+				'Repeat for several different angles of incidence.',
+				'Calculate the refractive index using n = sin(i)/sin(r) for each trial.',
+				'Average the calculated refractive index values.',
+			],
+			results:
+				"The refractive index should be approximately constant for all angles, consistent with Snell's Law (n ≈ 1.5 for typical glass).",
+		},
+		{
+			id: 24,
+			category: 'control',
+			title: 'Root Locus and Bode Plot Analysis',
+			desc: 'Analyze system stability using root locus and Bode plot techniques in simulation software.',
+			difficulty: 'hard',
+			time: '110 min',
+			objective:
+				'Use root locus and Bode plot analysis to evaluate the stability and frequency response of a feedback control system.',
+			equipment: [
+				'PC with MATLAB/Simulink or equivalent control software',
+				'Control system toolbox',
+				'Sample transfer function data sheets',
+			],
+			safety: [
+				'No significant physical safety risk — simulation experiment.',
+				'Save work frequently to avoid data loss.',
+			],
+			procedure: [
+				'Define the open-loop transfer function G(s)H(s) of the system under study.',
+				'Generate the root locus plot and identify the range of gain K for stability.',
+				'Determine breakaway points and asymptotes on the root locus.',
+				'Generate the Bode plot (magnitude and phase) for the open-loop system.',
+				'Identify the gain margin and phase margin from the Bode plot.',
+				'Adjust the gain K and observe changes in the stability margins.',
+				'Compare conclusions from the root locus and Bode plot analysis.',
+			],
+			results:
+				'The system is stable for gains where all root locus branches remain in the left half-plane and the gain/phase margins are positive.',
+		},
 	];
 
 	function getAll() {
@@ -1233,10 +1532,20 @@ const ExperimentsModule = (() => {
 				(lower.includes('diode') && e.title.includes('Diode')) ||
 				(lower.includes('resonance') && e.title.includes('Resonance')) ||
 				(lower.includes('calorimetry') && e.title.includes('Calorimetry')) ||
-				(lower.includes('specific heat') && e.title.includes('Specific Heat')),
+				(lower.includes('specific heat') &&
+					e.title.includes('Specific Heat')) ||
+				(lower.includes('induction motor') &&
+					e.title.includes('Induction Motor')) ||
+				(lower.includes('op-amp') && e.title.includes('Op-Amp')) ||
+				(lower.includes('young') && e.title.includes('Young')) ||
+				((lower.includes('open-loop') || lower.includes('closed-loop')) &&
+					e.title.includes('Open-Loop')) ||
+				(lower.includes('ph determination') && e.title.includes('pH')) ||
+				(lower.includes('555') && e.title.includes('555')) ||
+				(lower.includes('refraction') && e.title.includes('Refraction')) ||
+				(lower.includes('root locus') && e.title.includes('Root Locus')),
 		);
 	}
-
 	return { getAll, getByCategory, getById, findByQuery };
 })();
 
@@ -1386,6 +1695,18 @@ const AssistantPromptBank = [
 			{ label: 'Oscilloscope', text: 'Oscilloscope basics' },
 			{ label: 'Power Supply', text: 'Power supply basics' },
 			{ label: 'AC vs DC', text: 'What is the difference between AC and DC?' },
+			{ label: "Kirchhoff's Laws", text: "Explain Kirchhoff's laws" },
+			{ label: 'Diodes', text: 'Explain diodes' },
+			{ label: 'Transistors', text: 'Explain transistors' },
+			{
+				label: "Newton's Laws",
+				text: "Explain force and Newton's laws of motion",
+			},
+			{ label: 'Waves', text: 'Explain waves' },
+			{ label: 'Molarity', text: 'Explain molarity' },
+			{ label: 'Op-Amp Basics', text: 'Explain op-amps' },
+			{ label: '555 Timer', text: 'Explain the 555 timer IC' },
+			{ label: 'Refraction', text: "Explain refraction and Snell's law" },
 		],
 	},
 	{
@@ -1414,6 +1735,38 @@ const AssistantPromptBank = [
 				text: 'Guide me through a simple pendulum experiment',
 			},
 			{ label: 'PID Control', text: 'Guide me through a PID experiment' },
+			{
+				label: 'Induction Motor',
+				text: 'Guide me through the Induction Motor Slip Test experiment',
+			},
+			{
+				label: 'Op-Amp Amplifier',
+				text: 'Guide me through an op-amp amplifier experiment',
+			},
+			{
+				label: "Young's Modulus",
+				text: "Guide me through the Young's Modulus experiment",
+			},
+			{
+				label: 'Open vs Closed Loop',
+				text: 'Guide me through the open-loop vs closed-loop speed control experiment',
+			},
+			{
+				label: 'pH Determination',
+				text: 'Guide me through the pH determination experiment',
+			},
+			{
+				label: '555 Timer Circuit',
+				text: 'Guide me through the 555 timer experiment',
+			},
+			{
+				label: 'Refraction',
+				text: "Guide me through the refraction and Snell's law experiment",
+			},
+			{
+				label: 'Root Locus',
+				text: 'Guide me through the root locus and Bode plot experiment',
+			},
 		],
 	},
 	{
@@ -1455,6 +1808,10 @@ const AssistantPromptBank = [
 			{
 				label: 'Frequency / Period',
 				text: 'Find frequency from period 0.02 s',
+			},
+			{
+				label: 'Period / Frequency',
+				text: 'Find period from frequency 50 Hz',
 			},
 		],
 	},
@@ -2059,20 +2416,46 @@ const ChatModule = (() => {
 		const chatWindow = document.getElementById('chatWindow');
 		chatWindow.innerHTML = `
 		<div class="chat-welcome">
-			<div class="welcome-icon"><i class="fas fa-robot"></i></div>
-			<p class="welcome-title">LabMate is ready.</p>
-			<p class="welcome-hint">Try: <em>"Explain Ohm's Law"</em> · <em>"Guide me through a Wheatstone bridge experiment"</em> · <em>"Find resonance frequency for 10 mH and 100 uF"</em></p>
-			<div class="quick-prompts">
-			<button class="quick-btn" onclick="sendQuick('Explain inductance')">Inductance?</button>
-			<button class="quick-btn" onclick="sendQuick('What PPE should I wear in the lab?')">PPE Guide</button>
-			<button class="quick-btn" onclick="sendQuick('How to use a multimeter?')">Multimeter</button>
-			<button class="quick-btn" onclick="sendQuick('Guide me through a transformer experiment')">Transformer Exp.</button>
-			</div>
-			<div class="prompt-library" id="assistantPromptLibrary"></div>
-		</div>`;
+						<div class="welcome-icon"><i class="fas fa-robot"></i></div>
+						<p class="welcome-title">LabMate is ready.</p>
+						<p class="welcome-hint">Do you want our prompt-library?</p>
+						<div class="quick-prompts">
+							<button class="quick-btn" id='promptLibraryToggleBtn' onclick="displayPromptLibrary()">
+								Show Prompt Library
+							</button>
+						</div>
+						<p class="welcome-hint">
+							Or you can try:
+							<em>"Guide me through a Wheatstone bridge experiment"</em> ·
+						</p>
+						<div class="quick-prompts">
+							<button
+								class="quick-btn"
+								onclick="sendQuick('Explain inductance')">
+								Inductance?
+							</button>
+							<button
+								class="quick-btn"
+								onclick="sendQuick('What PPE should I wear in the lab?')">
+								PPE Guide
+							</button>
+							<button
+								class="quick-btn"
+								onclick="sendQuick('How to use a multimeter?')">
+								Multimeter
+							</button>
+							<button
+								class="quick-btn"
+								onclick="
+									sendQuick('Guide me through a transformer experiment')
+								">
+								Transformer Exp.
+							</button>
+						</div>
+					</div>`;
 		messages = [];
 		StorageModule.clearChat();
-		renderAssistantPromptBank();
+		// renderAssistantPromptBank();
 	}
 
 	function export_() {
@@ -2126,7 +2509,9 @@ const SpeechModule = (() => {
 			isListening = true;
 			const btn = document.getElementById('voiceBtn');
 			if (btn) btn.classList.add('active');
-			setVoiceFeedback('🎤 Listening…');
+			setVoiceFeedback(
+				`<i class="fa-solid fa-microphone" style="color: white;"></i> Listening…`,
+			);
 			setStatus('listening', 'Listening…');
 		};
 
@@ -2187,21 +2572,21 @@ const SpeechModule = (() => {
 		} catch (e) {}
 	}
 
-	function speak(text, rate = 0.95, pitch = 1) {
+	function speak(text, rate = 1, pitch = 1) {
 		if (!synthesis) return;
 		synthesis.cancel();
 		const cleanText = text.substring(0, 500); // limit length
 		const utt = new SpeechSynthesisUtterance(cleanText);
 		utt.rate = rate;
 		utt.pitch = pitch;
-		utt.volume = 0.85;
+		utt.volume = 0.95;
 		// Try to select a clear voice
 		const voices = synthesis.getVoices();
 		const preferred = voices.find(
 			(v) =>
+				v.name.includes('Samantha') ||
 				v.name.includes('Google') ||
-				v.name.includes('Daniel') ||
-				v.name.includes('Samantha'),
+				v.name.includes('Daniel'),
 		);
 		if (preferred) utt.voice = preferred;
 		synthesis.speak(utt);
@@ -2209,7 +2594,7 @@ const SpeechModule = (() => {
 
 	function setVoiceFeedback(text) {
 		const el = document.getElementById('voiceFeedback');
-		if (el) el.textContent = text;
+		if (el) el.innerHTML = text;
 	}
 
 	function setStatus(state, text) {
@@ -2563,6 +2948,23 @@ function sendMessage() {
 
 function sendQuick(text) {
 	ChatModule.processInput(text);
+}
+
+function displayPromptLibrary() {
+	const root = document.getElementById('assistantPromptLibrary');
+	const btn = document.getElementById('promptLibraryToggleBtn');
+	if (!root) return;
+
+	const willOpen = !root.classList.contains('open');
+	if (willOpen) {
+		renderAssistantPromptBank();
+		root.classList.add('open');
+		root.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+	} else {
+		root.classList.remove('open');
+	}
+	if (btn)
+		btn.textContent = willOpen ? 'Hide Prompt Library' : 'Show Prompt Library';
 }
 
 function clearChat() {
